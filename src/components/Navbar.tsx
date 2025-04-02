@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { href: '/problem', text: 'Problem?' },
@@ -16,9 +17,29 @@ const Navbar = () => {
     { href: '/blog', text: 'Blog' },
   ];
 
+  // Handle scroll event to change navbar appearance
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="bg-[#F7F8FC99] shadow-sm fixed w-full top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={`navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'navbar-scrolled backdrop-blur-xl bg-white' : 'bg-white'
+    }`}>
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-[84px] items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
@@ -53,7 +74,7 @@ const Navbar = () => {
           <div className="hidden xl:flex items-center">
             <Link
               href="/contact"
-              className="relative hover:bg-transparent bg-[#ED552C] border-2 border-[#ED552C] rounded-full text-[#FFFFFF] hover:text-[#ED552C] px-4 py-1.5 text-sm transition-all duration-500 ease-out hover:shadow-lg hover:scale-105 lg:px-6 lg:py-2 lg:text-base overflow-hidden group"
+              className="relative hover:bg-transparent bg-[#ED552C] border-2 border-[#ED552C] text-[#FFFFFF] hover:text-[#ED552C] transition-all duration-500 ease-out hover:shadow-lg hover:scale-105 overflow-hidden group nav-text text-center"
             >
               <span className="relative z-10">Get In Touch</span>
             </Link>
@@ -62,7 +83,7 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <div className="xl:hidden">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-[#ED552C] hover:scale-110 focus:outline-none transition-colors duration-300"
               aria-label="Toggle menu"
             >
@@ -75,10 +96,10 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 style={{
-                  transform: isMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transform: isMobileMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                 }}
               >
-                {isMenuOpen ? (
+                {isMobileMenuOpen ? (
                   <path d="M6 18L18 6M6 6l12 12" />
                 ) : (
                   <path d="M4 6h16M4 12h16M4 18h16" />
@@ -91,7 +112,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         <div 
           className={`xl:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-            isMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+            isMobileMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t rounded-lg">
@@ -100,11 +121,11 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 className="block px-3 py-2 text-[#ED552C] hover:bg-orange-50 rounded-lg transition-all duration-500 ease-out transform hover:translate-x-2"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => setIsMobileMenuOpen(false)}
                 style={{
                   transitionDelay: `${index * 50}ms`,
-                  opacity: isMenuOpen ? 1 : 0,
-                  transform: isMenuOpen 
+                  opacity: isMobileMenuOpen ? 1 : 0,
+                  transform: isMobileMenuOpen 
                     ? 'translateX(0)' 
                     : 'translateX(-100%)',
                 }}
@@ -115,11 +136,11 @@ const Navbar = () => {
             <Link
               href="/contact"
               className="relative block px-3 py-1.5 text-sm text-center border-2 border-[#ED552C] text-[#ED552C] rounded-full transition-all duration-500 ease-out hover:text-white hover:shadow-lg hover:scale-105 mx-3 transform sm:w-40 sm:mx-auto overflow-hidden group"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMobileMenuOpen(false)}
               style={{
                 transitionDelay: `${navLinks.length * 50}ms`,
-                opacity: isMenuOpen ? 1 : 0,
-                transform: isMenuOpen 
+                opacity: isMobileMenuOpen ? 1 : 0,
+                transform: isMobileMenuOpen 
                   ? 'translateX(0)' 
                   : 'translateX(-100%)',
               }}

@@ -17,30 +17,30 @@ const FeaturesGrid = memo(() => {
     () => [
       {
         id: 0,
-        image: "/images/Slide2nd.png",
-        title: "Live updates, smart suggestions",
+        image: "/images/Flight.gif",
+        title: "Live Updates, Smart Suggestions",
         subtitle: "All In Your Pocket",
         link: "/join-the-club",
       },
       {
         id: 1,
-        image: "/images/slide3rd.png",
-        title: "Blend in like a local",
-        subtitle: "Roamyo's got the cultural cheat sheet",
+        image: "/images/Wine.gif",
+        title: "Blend In Like A Local",
+        subtitle: "Roamyo's Got The Cultural Cheat Sheet",
         link: "/join-the-club",
       },
       {
         id: 2,
-        image: "/images/slide4rth.png",
-        title: "Share it with your friends",
-        subtitle: "Because trips are more fun when everyone's in on the plan.",
+        image: "/images/Shareit.Gif",
+        title: "Share It With Your Friends",
+        subtitle: "Because Trips Are More Fun When Everyone's In On The Plan.",
         link: "/join-the-club",
       },
       {
         id: 3,
-        image: "/images/slide1st.png",
-        title: 'Forget the "Oops, I forgot" moments',
-        subtitle: "Roamyo's list has it all. pack like a pro",
+        image: "/images/Rain.gif",
+        title: 'Forget The "Oops, I Forgot" Moments',
+        subtitle: "Roamyo's List Has It All. Pack Like A Pro",
         link: "/join-the-club",
       },
     ],
@@ -53,37 +53,37 @@ const FeaturesGrid = memo(() => {
   }, []);
 
   // Setup autoplay functionality using requestAnimationFrame instead of setInterval
-  useEffect(() => {
-    if (isAnimating || isPaused) return;
+  // useEffect(() => {
+  //   if (isAnimating || isPaused) return;
 
-    const animate = (timestamp: number) => {
-      if (!autoplayTimerRef.current) {
-        autoplayTimerRef.current = timestamp;
-      }
+  //   const animate = (timestamp: number) => {
+  //     if (!autoplayTimerRef.current) {
+  //       autoplayTimerRef.current = timestamp;
+  //     }
 
-      const elapsed = timestamp - autoplayTimerRef.current;
+  //     const elapsed = timestamp - autoplayTimerRef.current;
 
-      if (elapsed >= 3000) {
-        // 3 seconds
-        if (!isPaused && !isAnimating) {
-          goToSlide(activeSlide + 1);
-        }
-        autoplayTimerRef.current = timestamp;
-      }
+  //     if (elapsed >= 3000) {
+  //       // 3 seconds
+  //       if (!isPaused && !isAnimating) {
+  //         goToSlide(activeSlide + 1);
+  //       }
+  //       autoplayTimerRef.current = timestamp;
+  //     }
 
-      autoplayIntervalRef.current = requestAnimationFrame(animate);
-    };
+  //     autoplayIntervalRef.current = requestAnimationFrame(animate);
+  //   };
 
-    autoplayIntervalRef.current = requestAnimationFrame(animate);
+  //   autoplayIntervalRef.current = requestAnimationFrame(animate);
 
-    // Cleanup on component unmount
-    return () => {
-      if (autoplayIntervalRef.current) {
-        cancelAnimationFrame(autoplayIntervalRef.current);
-        autoplayIntervalRef.current = null;
-      }
-    };
-  }, [activeSlide, isPaused, isAnimating]);
+  //   // Cleanup on component unmount
+  //   return () => {
+  //     if (autoplayIntervalRef.current) {
+  //       cancelAnimationFrame(autoplayIntervalRef.current);
+  //       autoplayIntervalRef.current = null;
+  //     }
+  //   };
+  // }, [activeSlide, isPaused, isAnimating]);
 
   const pauseAutoplay = useCallback(() => setIsPaused(true), []);
   const resumeAutoplay = useCallback(() => setIsPaused(false), []);
@@ -231,7 +231,7 @@ const FeaturesGrid = memo(() => {
             >
               <div className="p-8 flex flex-col h-full">
                 <div className="flex-1 flex items-center justify-center featuresGrid-card">
-                  <div className="relative w-[80%] h-full overflow-x-hidden">
+                  <div className="relative w-[100%] h-full overflow-x-hidden">
                     <Image
                       src={feature.image}
                       alt={feature.title}
@@ -280,7 +280,6 @@ const FeaturesGrid = memo(() => {
     () => (
       <div className="bg-[#F7F8FC] pb-6 font-gilroy relative overflow-x-hidden overflow-y-visible featuresGrid-container">
         {/* Vertical line for center alignment reference */}
-        <div className="absolute top-0 bottom-0 left-1/2 w-px bg-blue-200 opacity-30 z-0"></div>
 
         <div className="max-w-7xl mx-auto md:px-8 px-0 featuresGrid-container">
           <h2 className="grid-head">Roamyo Makes It Stupid <br className="sm:hidden block" /> Easy!</h2>
@@ -489,27 +488,33 @@ const FeaturesGrid = memo(() => {
           }
 
           .animate-slide-in-left {
-            animation: slideInLeft 0.5s ease-out forwards;
+            animation: slideInLeft 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+            will-change: transform, opacity;
           }
 
           .animate-slide-in-right {
-            animation: slideInRight 0.5s ease-out forwards;
+            animation: slideInRight 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+            will-change: transform, opacity;
           }
 
           .animate-slide-out-left {
-            animation: slideOutLeft 0.5s ease-out forwards;
+            animation: slideOutLeft 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+            will-change: transform, opacity;
           }
 
           .animate-slide-out-right {
-            animation: slideOutRight 0.5s ease-out forwards;
+            animation: slideOutRight 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+            will-change: transform, opacity;
           }
 
           .animate-slide-from-left {
-            animation: slideFromLeft 0.5s ease-out forwards;
+            animation: slideFromLeft 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+            will-change: transform, opacity;
           }
 
           .animate-slide-from-right {
-            animation: slideFromRight 0.5s ease-out forwards;
+            animation: slideFromRight 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+            will-change: transform, opacity;
           }
         `}</style>
       </div>

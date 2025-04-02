@@ -60,16 +60,19 @@ const FeatureSlider = () => {
     const updateSliderPosition = () => {
       const windowWidth = window.innerWidth;
       const slideWidth =
-        windowWidth > 1200
+        windowWidth > 1300
           ? 1100
-          : windowWidth > 992
-          ? 620
+          : windowWidth > 1200
+          ? 800
+          : windowWidth > 1000
+          ? 850
           : windowWidth > 768
           ? 600
           : windowWidth > 480
           ? 400
-          : 150;
-
+          : windowWidth > 300
+          ? 270
+          : 250;
       setSliderPosition(-activeSlide * slideWidth);
     };
 
@@ -89,24 +92,24 @@ const FeatureSlider = () => {
     };
   }, [activeSlide]);
 
-  useEffect(() => {
-    // Only set up autoplay when autoPlay is true and we're not already animating
-    if (!autoPlay || animating) return;
+  // useEffect(() => {
+  //   // Only set up autoplay when autoPlay is true and we're not already animating
+  //   if (!autoPlay || animating) return;
 
-    const timer = setInterval(() => {
-      goToNextSlide();
-    }, 3000);
+  //   const timer = setInterval(() => {
+  //     goToNextSlide();
+  //   }, 3000);
 
-    autoPlayRef.current = timer;
+  //   autoPlayRef.current = timer;
 
-    // Cleanup
-    return () => {
-      if (timer) {
-        clearInterval(timer);
-        autoPlayRef.current = null;
-      }
-    };
-  }, [autoPlay, animating, goToNextSlide]);
+  //   // Cleanup
+  //   return () => {
+  //     if (timer) {
+  //       clearInterval(timer);
+  //       autoPlayRef.current = null;
+  //     }
+  //   };
+  // }, [autoPlay, animating, goToNextSlide]);
 
   const handleMouseEnter = useCallback(() => pauseAutoPlay(), [pauseAutoPlay]);
   const handleMouseLeave = useCallback(
@@ -178,9 +181,9 @@ const FeatureSlider = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 items-center h-full">
                 <div className="lg:py-24 py-0 px-8 flex justify-center padSlide">
-                  <div className="relative lg:w-[357px] lg:h-[336px] md:w-[250px] md:h-[200px] w-[200px] h-[100px]">
+                  <div className="relative lg:w-[400px] lg:h-[360px] md:w-[250px] md:h-[200px] w-[200px] h-[100px]">
                     <Image
-                      src="/images/slideIcon1.png"
+                      src="/images/Laptop.gif"
                       alt="Chat with Roamyo"
                       fill
                       className="object-contain"
@@ -192,7 +195,10 @@ const FeatureSlider = () => {
                     Chat With Roamyo And Plan Your Trip In Minutes &nbsp;
                     <span className="slide-span">(Seriously!)</span>
                   </h3>
-                  <Link href="/join" className="group-2 flex items-center gap-1">
+                  <Link
+                    href="/join"
+                    className="group-2 flex items-center gap-1 underline"
+                  >
                     Become An Alpha Roamer, Now
                     <div className="h-[20px] w-[20px] border-[1px] border-[#ED552C] rounded-full flex justify-center items-center">
                       <svg
@@ -223,7 +229,7 @@ const FeatureSlider = () => {
                 <div className="py-24 xl:px-8 md:px-4 flex justify-center pdng-rdc">
                   <div className="relative lg:w-[500px] lg:h-[420px] md:w-[300px] md:h-[150px] w-[200px] h-[80px] scale-140 md:scale-100 slide-img-2">
                     <Image
-                      src="/images/slide2.png"
+                      src="/images/reporter.gif"
                       alt="Day by Day Plans"
                       fill
                       className="object-contain"
@@ -235,7 +241,10 @@ const FeatureSlider = () => {
                     Get day-by-day plans tailored to you — budget, style, vibe,
                     all covered.
                   </h3>
-                  <Link href="/join" className="group-2 flex items-center gap-1">
+                  <Link
+                    href="/join"
+                    className="group-2 flex items-center gap-1 underline"
+                  >
                     Become An Alpha Roamer, Now
                     <div className="h-[20px] w-[20px] border-[1px] border-[#ED552C] rounded-full flex justify-center items-center">
                       <svg
@@ -266,7 +275,7 @@ const FeatureSlider = () => {
                 <div className="py-24 xl:px-8 md:px-4 flex justify-center pdng-rdc">
                   <div className="relative lg:w-[500px] lg:h-[420px] md:w-[200px] md:h-[150px] w-[150px] h-[100px] slide-img-3">
                     <Image
-                      src="/images/slide3.png"
+                      src="/images/reporter.gif"
                       alt="Save Hours of Research"
                       fill
                       className="object-contain"
@@ -277,7 +286,10 @@ const FeatureSlider = () => {
                   <h3 className="slide-heading text-[#13263E]">
                     Save hours of research Roamyo's got the deets!
                   </h3>
-                  <Link href="/join" className="group-2 flex items-center gap-1">
+                  <Link
+                    href="/join"
+                    className="group-2 flex items-center gap-1 underline   "
+                  >
                     Become An Alpha Roamer, Now
                     <div className="h-[20px] w-[20px] border-[1px] border-[#ED552C] rounded-full flex justify-center items-center">
                       <svg
@@ -306,20 +318,23 @@ const FeatureSlider = () => {
             >
               <div className="flex sm:flex-row flex-col w-full justify-start items-center h-full">
                 <div className="sm:py-24 py-6 xl:px-8 md:px-4 flex justify-center relative">
-                  <div className="relative lg:w-[800px] lg:h-[420px] md:w-[350px] md:h-[250px] w-[200px] h-[100px] slide-img-4">
+                  <div className="relative lg:w-[750px] lg:h-[620px] md:w-[350px] md:h-[250px] w-[200px] h-[100px] slide-img-4">
                     <Image
-                      src="/images/slide5.png"
+                      src="/images/hiking.gif"
                       alt="Local Insights"
                       fill
                       className="object-contain"
                     />
                   </div>
                 </div>
-                <div className="w-[300px] flex flex-col items-start sm:absolute supportClass md:w-[360px]">
+                <div className="w-[300px] flex flex-col items-start sm:absolute sld4 supportClass md:w-[360px]">
                   <h3 className="slide-heading text-[#13263E]">
-                  Find hidden gems and cool local spots without the FOMO.
+                    Find hidden gems and cool local spots without the FOMO.
                   </h3>
-                  <Link href="/join" className="group-2 flex items-center gap-1">
+                  <Link
+                    href="/join"
+                    className="group-2 flex items-center gap-1 underline"
+                  >
                     Become An Alpha Roamer, Now
                     <div className="h-[20px] w-[20px] border-[1px] border-[#ED552C] rounded-full flex justify-center items-center">
                       <svg
@@ -348,9 +363,9 @@ const FeatureSlider = () => {
             >
               <div className="flex sm:flex-row flex-col w-full justify-start items-center h-full">
                 <div className="sm:py-24 py-6 xl:px-8 md:px-4 flex justify-center relative">
-                  <div className="relative lg:w-[800px] lg:h-[420px] md:w-[350px] md:h-[250px] w-[200px] h-[100px] slide-img-5">
+                  <div className="relative lg:w-[750px] lg:h-[620px] md:w-[350px] md:h-[250px] w-[200px] h-[100px] slide-img-4">
                     <Image
-                      src="/images/slide5.png"
+                      src="/images/hiking.gif"
                       alt="24/7 Support"
                       fill
                       className="object-contain"
@@ -359,9 +374,12 @@ const FeatureSlider = () => {
                 </div>
                 <div className="flex flex-col items-start sm:absolute supportClass newSupport md:w-[400px]">
                   <h3 className="slide-heading text-[#13263E]">
-                  Tweak and adjust on the go - Roamyo’s chill like that.
+                    Tweak and adjust on the go - Roamyo’s chill like that.
                   </h3>
-                  <Link href="/join" className="group-2 flex items-center gap-1">
+                  <Link
+                    href="/join"
+                    className="group-2 flex items-center gap-1 underline"
+                  >
                     Become An Alpha Roamer, Now
                     <div className="h-[20px] w-[20px] border-[1px] border-[#ED552C] rounded-full flex justify-center items-center">
                       <svg
@@ -391,18 +409,21 @@ const FeatureSlider = () => {
                 <div className="py-24 xl:px-8 md:px-4 flex justify-center pdng-rdc">
                   <div className="relative lg:w-[450px] lg:h-[420px] md:w-[220px] md:h-[150px] w-[150px] h-[100px] slide-img-6">
                     <Image
-                      src="/images/slide6.png"
+                      src="/images/Suitcase.gif"
                       alt="Save Hours of Research"
                       fill
                       className="object-contain"
                     />
                   </div>
                 </div>
-                <div className=" flex flex-col items-start w-[400px] ml-10 cntnt-6">
+                <div className=" flex flex-col items-start w-[400px] sm:ml-10 ml:0 cntnt-6">
                   <h3 className="slide-heading text-[#13263E]">
-                  Packing lists? Live updates? Cultural tips? Done and done!
+                    Packing lists? Live updates? Cultural tips? Done and done!
                   </h3>
-                  <Link href="/join" className="group-2 flex items-center gap-1">
+                  <Link
+                    href="/join"
+                    className="group-2 flex items-center gap-1 underline"
+                  >
                     Become An Alpha Roamer, Now
                     <div className="h-[20px] w-[20px] border-[1px] border-[#ED552C] rounded-full flex justify-center items-center">
                       <svg

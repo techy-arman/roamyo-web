@@ -6,11 +6,11 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#E6F2FF] pt-16 px-10 font-gilroy">
+    <footer className="bg-[#E6F2FF] pt-16 sm:px-10 font-gilroy px-2">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row justify-between mb-16 gap-20">
           {/* Left side - Logo and subscribe */}
-          <div className="w-1/2 mb-8 md:mb-0">
+          <div className="w-1/2 mb-8 md:mb-0 footerCols">
             <div className="flex items-center lg:mb-0 md:mb-8 mt-4">
               <Link
                 href="/"
@@ -31,7 +31,7 @@ const Footer = () => {
               Where to Next? Let Roamyo Decide! ✈️
             </h3>
             <p className="footer-para-sec italic">
-              Join The Alpha Roamers and get AI-powered travel <br  className="hidden lg:block"/> magic in
+              Join The Alpha Roamers and get AI-powered travel <br  className="hidden"/> magic in
               your inbox!
             </p>
 
@@ -40,7 +40,7 @@ const Footer = () => {
             className="inline-flex items-center bg-[#ED552C] text-white hover:bg-[#D64A27] relative transition-all duration-300 transform hover:scale-105 group subscribe-btn-footer"
           >
             Subscribe to the &nbsp;<span className="subscribe-btn-footer2"> Newsletter</span>
-            <span className='bg-[#13263E] w-12 h-full absolute hero-span-svg2 flex items-center justify-center'><svg 
+            <span className='bg-[#13263E] sm:w-12 w-8 h-full absolute hero-span-svg2 flex items-center justify-center'><svg 
               className="hero-svg rounded-sm transform transition-transform duration-300 group-hover:translate-x-1" 
               fill="none" 
               viewBox="0 0 24 24" 
@@ -67,22 +67,19 @@ const Footer = () => {
             <div className="flex justify-end items-center mr-10">
               <div className="flex lg:flex-row md:flex-col md:gap-4 flex-wrap justify-between w-full lg:max-w-[79%] md:w-full footerMenuList">
                 {/* First Column */}
-                <div className="w-1/2 md:w-auto mb-6 md:mb-0">
+                <div className="sm:w-1/2 md:w-auto mb-6 md:mb-0 footerCols">
                   <ul className="footerList">
                     <li>
                       <Link href="/Problem">Problem?</Link>
                     </li>
                     <li>
-                      <Link href="/faq">FAQ</Link>
+                      <Link href="/faq">Fixed</Link>
                     </li>
                     <li>
-                      <Link href="/pricing">Pricing</Link>
+                      <Link href="/pricing">Simple As That</Link>
                     </li>
                     <li>
-                      <Link href="/simple-as-that">Simple As That</Link>
-                    </li>
-                    <li>
-                      <Link href="/get-it">Get It?</Link>
+                      <Link href="/get-it">Get In!</Link>
                     </li>
                     <li>
                       <Link href="/got-questions">Got Questions?</Link>
@@ -91,7 +88,7 @@ const Footer = () => {
                 </div>
                 <hr className="lg:hidden w-full border-[1px] border-[#13263E] my-4" />
                 {/* Second Column */}
-                <div className="w-1/2 md:w-auto mb-6 md:mb-0">
+                <div className="w-1/2 md:w-auto mb-6 md:mb-0 footerCols">
                   <ul className="footerList">
                     <li>
                       <Link href="/About">About</Link>
@@ -148,7 +145,7 @@ const Footer = () => {
               <div className="flex flex-wrap justify-between w-full sm:max-w-[78%]">
                 {/* Copyright */}
                 <div className="text-start text-md font-medium text-[#E5320F]">
-                  © Copyright 2023. All rights reserved by Roamyo.
+                  © Copyright 2025. All rights reserved by Roamyo.
                 </div>
               </div>
             </div>

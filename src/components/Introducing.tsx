@@ -10,13 +10,13 @@ const Introducing = () => {
           <h2 className="rmyo text-[#ED552C]">Roamyo</h2>
           <p className="prfect-travel">Your Perfect Travel Partner</p>
         
-        <div className="mt-16 flex justify-center introImg">
-          <Image src="/images/logo-3rd.png" alt="Roamyo Mascot" height={288} width={333}/>
+        <div className="mt-8 flex justify-center introImg relative z-10">
+          <Image src="/images/intro.png" alt="Roamyo Mascot" height={308} width={343}/>
         </div>
       </div>
       
       {/* Wave shape at the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#F6F7FF]"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-6 bg-[#F6F7FF]"></div>
     </div>
   );
 };

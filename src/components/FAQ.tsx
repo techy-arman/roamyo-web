@@ -109,7 +109,7 @@ const FAQ = () => {
           <p className="mb-3">You'll also have the chance to join our user research squad — get sneak peeks of upcoming features and share your unfiltered thoughts to help us make Roamyo even better. 😎</p>
           <p className="mb-3">And here's the kicker — you can join our affiliate program and earn a cut from every successful referral you make. ✨ Free trip plans, anyone?
           </p>
-          <p className="mb-3">Sounds good? <Link href="/join" className="text-[#000000] font-semibold">Join the Alpha Roamers now! 🚀
+          <p className="mb-3">Sounds good? <Link href="/join" className="lst-Que">Join the Alpha Roamers now! 🚀
           </Link></p>
         </>
       )
@@ -163,7 +163,7 @@ const FAQ = () => {
         </h2>
         
         {/* FAQ Container */}
-        <div className="bg-white rounded-xl overflow-hidden shadow-lg">
+        <div className="bg-white rounded-xl overflow-hidden shadow-lg border-[#8EBAE3] border-[1px]">
           {/* Mobile Layout */}
           <div className="md:hidden flex flex-col">
             {/* Content Section for Mobile */}
@@ -240,7 +240,7 @@ const FAQ = () => {
             {/* Left Side - Blue Panel with Tabs (only if not on first question) */}
             {showLeftPanel && (
               <div className="w-full md:w-auto bg-[#A7CAED] relative">
-                <div className="h-full min-h-[300px] md:min-h-[600px]">
+                <div className="h-full min-h-[300px] md:min-h-[700px] lg:min-h-[800px]">
                   <div className="flex flex-row h-full">
                     {leftQuestions.slice(0, leftQuestions.length - 1).map((index) => (
                       <div 
@@ -263,8 +263,8 @@ const FAQ = () => {
                           <div 
                             className="transform -rotate-90 origin-bottom-left right-title whitespace-normal absolute"
                             style={{
-                              width: '370px',
-                              maxWidth: '370px',
+                              width: '500px',
+                              maxWidth: '500px',
                               left: '65px',
                               bottom: '50px',
                             }}
@@ -291,7 +291,7 @@ const FAQ = () => {
               </div>
               
               <div style={getAnimationStyle()}>
-                <h3 className="active-faq-head mb-4 md:mb-6 max-w-[90%]">
+                <h3 className="active-faq-head mb-4 md:mb-6 max-w-[90%] mt-16">
                   {faqItems[activeTab].title}
                 </h3>
                 
@@ -315,7 +315,7 @@ const FAQ = () => {
             {/* Right Side - Blue Panel with Tabs (only if there are questions to display) */}
             {hasRightQuestions && (
               <div className={`w-full md:w-auto bg-[#A7CAED] relative`}>
-                <div className="h-full min-h-[300px] md:min-h-[600px]">
+                <div className="h-full min-h-[300px] md:min-h-[700px] lg:min-h-[800px]">
                   <div className="flex flex-row h-full">
                     {rightQuestions.map((index) => (
                       <div 
@@ -338,8 +338,8 @@ const FAQ = () => {
                           <div 
                             className="transform -rotate-90 origin-bottom-left right-title whitespace-normal absolute"
                             style={{
-                              width: '370px',
-                              maxWidth: '370px',
+                              width: '500px',
+                              maxWidth: '500px',
                               left: '65px',
                               bottom: '50px',
                             }}

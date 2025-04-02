@@ -7,7 +7,7 @@ const Planning = () => {
         {/* Heading Section */}
         <div className="text-center">
           <h2 className="text-[#0F1B2B] section2-heading">
-            Lost in the Planning Spiral? <br className="hidden lg:block"/>
+            Lost in the Planning Spiral? <br/>
             We’ve Been There.
           </h2>
         </div>
@@ -19,7 +19,7 @@ const Planning = () => {
             <div className="w-full flex items-center justify-center">
               {/* Image placeholder */}
               <div className="crying-img w-[297px] h-[319px] relative">
-                <Image src="/images/crying.png" alt="3 Hours on Google" fill />
+                <Image src="/images/Crying.gif" alt="3 Hours on Google" fill />
               </div>
             </div>
             <h3 className="crying-title">
@@ -51,7 +51,7 @@ const Planning = () => {
                 {/* Image placeholder */}
                 <div className="sec2-Img relative">
                   <Image
-                    src="/images/tarazu.png"
+                    src="/images/Tarazu.gif"
                     alt="3 Hours on Google"
                     fill
                   />
@@ -69,7 +69,7 @@ const Planning = () => {
               <div className="w-full flex items-center justify-center">
                 {/* Image placeholder */}
                 <div className="card3Img relative">
-                  <Image src="/images/bus.png" alt="3 Hours on Google" fill />
+                  <Image src="/images/Bus.gif" alt="3 Hours on Google" fill />
                 </div>
               </div>
             </div>

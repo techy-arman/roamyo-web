@@ -34,7 +34,7 @@ const JoinClub = () => {
           </p>
           <div className="rounded-full bg-[#2891FECC]   sm:h-[41px] sm:w-[65px] h-[35px] w-[50px]"></div>
         </div>
-        <div className="flex gap-4 justify-center items-center mt-4 ml-28">
+        <div className="flex gap-4 justify-center items-center mt-4 sm:ml-28 ml-4">
           <div className="rounded-full bg-[#FFFFFFA6]   sm:h-[41px] sm:w-[65px] h-[35px] w-[50px]"></div>
           <p className="text-[#F7F8FC] section-7-para-2 bg-[#2891FE78] rounded-full   hidden lg:block">6 months free membership? Yes, please.
           </p>
@@ -49,7 +49,7 @@ const JoinClub = () => {
           </p>
           <div className="rounded-full bg-[#2891FECC]   sm:h-[41px] sm:w-[65px] h-[35px] w-[50px]"></div>
         </div>
-        <div className="flex gap-4 justify-center items-center mt-4 ml-28 lg:hidden">
+        <div className="flex gap-4 justify-center items-center mt-4 sm:ml-28 ml-4 lg:hidden">
           <div className="rounded-full bg-[#FFFFFFA6]   sm:h-[41px] sm:w-[65px] h-[35px] w-[50px]"></div>
           <p className="text-[#F7F8FC] section-7-para-2 bg-[#2891FE78] rounded-full hidden lg:block">Test it out, tell us what you love (or hate 👀)
           </p>

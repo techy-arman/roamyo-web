@@ -12,13 +12,13 @@ const Hero = () => {
           src="/images/background.png"
           alt="Travel Background"
           fill
-          className="md:object-cover object-contain"
+          className="md:object-cover"
           priority
         />
       </div>
 
       {/* Overlay Image */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full ovrlyImg">
         <Image
           src="/images/background-cover.png"
           alt="Travel Overlay"
@@ -29,22 +29,22 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full h-full flex items-center justify-center">
-        <div className="text-center">
+      <div className="relative z-10 w-full h-full flex items-start justify-center sm:mt-32 mt-20">
+        <div className="text-center fstColsHd">
           <h1 className="relative text-[#13263E] hero-header">
-            <sup className="text-[#ED552C] hero-hash">#</sup>Your Perfect
+            <sup className="text-[#ED552C] hero-hash"><img src="/images/hash.png" alt="" className='xl:w-20 xl:h-20' /></sup>Your Perfect
             <br />
-            <span className="hero-travel">Travel</span> <span className='ml-8'>Partner</span>
+            <span className="hero-travel relative">Travel</span> <span className='ml-8'>Partner</span>
           </h1>
-          <p className="text-[#13263E]  hero-subheadr relative">
+          <p className="text-[#13263E] hero-subheadr relative">
             Roam Freely, Explore Smartly
           </p>
           <Link 
             href="/join"
-            className="inline-flex items-center bg-[#ED552C] text-white hover:bg-[#D64A27] relative transition-all duration-300 transform hover:scale-105 group alpha-roamers-btn"
+            className="inline-flex items-center bg-[#ED552C] text-white hover:bg-[#D64A27] relative transition-all duration-300 transform hover:scale-105 group alpha-roamers-btn newBtn"
           >
             Join the &nbsp;<span className="alpha-roamers-btn2"> Alpha Roamers</span>
-            <span className='bg-[#13263E] w-14 h-full absolute hero-span-svg flex items-center justify-center'><svg 
+            <span className='bg-[#13263E] md:w-14 w-6 h-full absolute hero-span-svg flex items-center justify-center'><svg 
               className="hero-svg rounded-md transform transition-transform duration-300 group-hover:translate-x-1" 
               fill="none" 
               viewBox="0 0 24 24" 
